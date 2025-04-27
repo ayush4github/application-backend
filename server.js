@@ -52,10 +52,10 @@ app.post("/submit-quiz", async (req, res) => {
 
     try {
         // Send full response to the first webhook
-        await axios.post(process.env.DISCORD_WEBHOOK_FULL, { content: fullResponseMessage });
+        await axios.post(process.env.FULL_RESPONSE_WEBHOOK, { content: fullResponseMessage });
 
         // Send pass/fail message to the second webhook
-        await axios.post(process.env.DISCORD_WEBHOOK_SHORT, { content: shortMessage });
+        await axios.post(process.env.RESULT_WEBHOOK, { content: shortMessage });
 
     } catch (error) {
         console.error("Error sending to Discord:", error);
